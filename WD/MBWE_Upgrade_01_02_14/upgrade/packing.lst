@@ -1,0 +1,8 @@
+STAGE1_FILE=../boot-tools/stage1.wrapped
+
+UBOOT_FILE=../vendor/u-boot/u-boot.wrapped
+
+KERNEL_FILE=../vendor/linux-kernel/arch/arm/boot/uImage
+
+ROOT_FS_FILE=../buildroot/binaries/OX810/rootfs.arm.ext2
+

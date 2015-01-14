@@ -1,0 +1,20 @@
+bootcmd=run select0 load boot || run select0 load2 boot || run lightled select1 load extinguishled boot || run lightled select1 load2 extinguishled boot || lightled
+bootdelay=2
+baudrate=115200
+ethaddr=00:30:e0:00:00:01
+ipaddr=172.31.0.128
+serverip=172.31.0.100
+autoload=n
+netmask=255.255.0.0
+bootfile="uImage"
+select0=ide dev 0
+select1=ide dev 1
+load=ide read 0x48500000 150 1644
+load2=ide read 0x48500000 7ede 1644
+lightled=ledfail 1
+extinguishled=ledfail 0
+boot=bootm 48500000
+stdin=serial
+stdout=serial
+stderr=serial
+bootargs=root=/dev/md0 console=ttyS0,115200 elevator=cfq mac_adr=0x00,0x30,0xe0,0x00,0x00,0x01

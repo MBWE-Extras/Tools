@@ -1,0 +1,17 @@
+#!/bin/sh -e
+# J J Larkworthy 
+# convert to self extracting/updateing archive.
+
+UPGRADE_DIR=/var/upgrade
+
+#extract code to /var directory.
+SKIP=`awk '/^__ARCHIVE_FOLLOWS__/ {print NR +1; exit 0 }' $0`
+
+tail -n+${SKIP} $0 | gunzip  | /bin/tar xm -C ${UPGRADE_DIR}
+
+cd /var
+chmod +x ${UPGRADE_DIR}/upgrade*.sh
+
+exit
+
+__ARCHIVE_FOLLOWS__
